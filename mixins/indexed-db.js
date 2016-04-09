@@ -12,10 +12,10 @@ mixin.loadAs = loadAs;
 mixin.saveAs = saveAs;
 module.exports = mixin;
 
-function init(callback) {
+function init(name, version, callback) {
 
   db = null;
-  var request = indexedDB.open("tedit", 1);
+  var request = indexedDB.open(name, version);
 
   // We can only create Object stores in a versionchange transaction.
   request.onupgradeneeded = function(evt) {
